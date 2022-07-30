@@ -114,3 +114,24 @@ function getNumberElBetween(arr, elOne, elTwo) {
 }
 
 console.log(getNumberElBetween(arr, 12, 123));
+
+// 6) იპოვის  მასივის  იმ  ელემენტების  ჯამს,  რომლებიც  მოთავსებულია  ორ  მოცემულ
+// ელემენტს შორის.
+
+let arr = [12, 15, 22, 24, 55, 123, 23];
+
+function getNumberElBetween(arr, elOne, elTwo) {
+	let flag = false;
+	let sumElements = 0;
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] === elOne || arr[i] === elTwo) {
+			flag = !flag;
+			continue;
+		}
+		if (flag) sumElements += arr[i];
+	}
+
+	return sumElements;
+}
+
+console.log(getNumberElBetween(arr, 12, 123));
