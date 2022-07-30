@@ -135,3 +135,13 @@ function getNumberElBetween(arr, elOne, elTwo) {
 }
 
 console.log(getNumberElBetween(arr, 12, 123));
+
+// 7) მასივის დადებით ელემენტებს გადაწერს მეორე მასივში.
+
+let arr = [-12, -15, 22, 24, -55, -123, 23];
+
+function getPositivElementsArr(arr) {
+	return arr.filter(el => el > 0);
+}
+
+console.log(getPositivElementsArr(arr));
