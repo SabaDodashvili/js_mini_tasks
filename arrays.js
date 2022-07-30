@@ -96,3 +96,21 @@ function findMaximumDifference(arrOne, arrTwo) {
 }
 
 console.log(findMaximumDifference(arrOne, arrTwo));
+
+// 5) Определяет, сколько элементов находятся между двумя заданными элементами массива, значение в масиве не должны повторятся.
+
+let arr = [12, 15, 22, 24, 55, 123, 23, 12];
+
+function getNumberElBetween(arr, elOne, elTwo) {
+	let elOneIndex;
+	let elTwoIndex;
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] === elOne) elOneIndex = i;
+		else if (arr[i] === elTwo) elTwoIndex = i;
+	}
+
+	return Math.abs(elOneIndex - elTwoIndex) - 1;
+}
+
+console.log(getNumberElBetween(arr, 12, 123));
