@@ -80,3 +80,19 @@ function getArrMaxElementIndex(arr) {
 // }
 
 console.log(getArrMaxElementIndex(myArr));
+
+// 4) есть масиов N10 и M10 найдите максимальное различие между елементами с одинаковыми индексами и верните это различие.
+let arrOne = [12, 15, 22, 24, 55, 123, 23];
+let arrTwo = [12, 15, 22, 24, 55, 113, 23];
+
+function findMaximumDifference(arrOne, arrTwo) {
+	let maxValue = 0;
+
+	for (let i = 0; i < arrOne.length; i++) {
+		if (Math.abs(arrOne[i] - arrTwo[i]) > Math.abs(maxValue)) maxValue = arrOne[i] - arrTwo[i];
+	}
+
+	return maxValue === 0 ? 'масивы идентичны' : maxValue;
+}
+
+console.log(findMaximumDifference(arrOne, arrTwo));
