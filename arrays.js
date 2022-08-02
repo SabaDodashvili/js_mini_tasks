@@ -191,3 +191,14 @@ function camelize(str) {
 }
 
 console.log(camelize('list-style-image'));
+
+// 9) Напишите функцию `filterRange(arr, a, b)`, которая принимает массив `arr`, ищет в нём элементы между `a` и `b` и отдаёт массив этих элементов.
+// Функция должна возвращать новый массив и не изменять исходный.
+
+let arr = [1, 3, 2, 3, 5, 6, 7, 8, 9, 11];
+
+function filterRange(arr, start, end) {
+	return arr.filter(el => el >= start && el <= end);
+}
+
+console.log(filterRange(arr, 2, 5));
