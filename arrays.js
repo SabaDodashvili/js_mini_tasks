@@ -202,3 +202,21 @@ function filterRange(arr, start, end) {
 }
 
 console.log(filterRange(arr, 2, 5));
+
+// 10) Напишите функцию `filterRangeInPlace(arr, a, b)`, которая принимает массив `arr` и удаляет из него все значения кроме тех, которые находятся между `a` и `b`. То есть, проверка имеет вид `a ≤ arr[i] ≤ b`.
+// Функция должна изменять принимаемый массив и ничего не возвращать.
+
+let arr = [1, 3, 4, 5, 2, 7, 6, 9, 8];
+
+function filterRangeInPlace(arr, start, end) {
+	for (let [i, el] of arr.entries()) {
+		if (el < start || el > end) {
+			arr.splice(i, 1);
+			i--;
+		}
+	}
+}
+
+filterRangeInPlace(arr, 3, 6);
+
+console.log(arr);
