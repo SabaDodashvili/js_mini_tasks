@@ -145,3 +145,49 @@ function getPositivElementsArr(arr) {
 }
 
 console.log(getPositivElementsArr(arr));
+
+// 8) Напишите функцию `camelize(str)`, которая преобразует строки вида «my-short-string» в «myShortString».
+// То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+//РЕШЕНИЕ - 1
+function camelize(str) {
+	let pos = 0;
+	let newStr = str;
+	let foundPos = 0;
+
+	while (true) {
+		foundPos = newStr.indexOf('-', pos);
+
+		if (foundPos === -1) break;
+
+		newStr = newStr.slice(0, foundPos) + newStr[foundPos + 1].toUpperCase() + newStr.slice(foundPos + 2);
+		pos = foundPos + 1;
+	}
+
+	return newStr;
+}
+
+console.log(camelize('list-style-image'));
+
+//РЕШЕНИЕ - 2
+function camelize(str) {
+	let tempArr = str.split('-');
+
+	for (let [i, el] of tempArr.entries()) {
+		if (i !== 0) tempArr[i] = el.slice(0, 1).toUpperCase() + el.slice(1);
+	}
+
+	return tempArr.join('');
+}
+
+console.log(camelize('list-style-image'));
+
+//РЕШЕНИЕ - 3
+function camelize(str) {
+	return str
+		.split('-')
+		.map((el, index) => (index !== 0 ? el.slice(0, 1).toUpperCase() + el.slice(1) : el))
+		.join('');
+}
+
+console.log(camelize('list-style-image'));
