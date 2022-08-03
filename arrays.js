@@ -303,3 +303,86 @@ let arr = [vasya, petya, masha];
 sortByAge(arr);
 
 console.log(arr);
+
+// 16) Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива. Многократные прогоны через shuffle могут привести к разным последовательностям элементов.
+
+//РЕШЕНИЕ-1
+let arr = [1, 2, 3];
+
+function shuffle(arr) {
+	let randomPos;
+	let randomArr = [];
+
+	while (true) {
+		if (randomArr.length === 3) break;
+
+		randomPos = Math.floor(Math.random() * arr.length);
+		if (randomArr.includes(arr[randomPos])) continue;
+		else randomArr.push(arr[randomPos]);
+	}
+
+	return randomArr;
+}
+//проверка
+
+let s123 = 0,
+	s132 = 0,
+	s213 = 0,
+	s231 = 0,
+	s321 = 0,
+	s312 = 0;
+let resultsArr = [];
+
+for (let i = 0; i < 10000; i++) {
+	temp = shuffle(arr).join('');
+
+	if (temp == '123') s123++;
+	if (temp == '132') s132++;
+	if (temp == '213') s213++;
+	if (temp == '231') s231++;
+	if (temp == '321') s321++;
+	if (temp == '312') s312++;
+}
+
+console.log(s123);
+console.log(s132);
+console.log(s213);
+console.log(s231);
+console.log(s321);
+console.log(s312);
+
+//РЕШЕНИЕ-2
+
+function shuffle(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+
+		// поменять элементы местами
+		// мы используем для этого синтаксис "деструктурирующее присваивание"
+		// подробнее о нём - в следующих главах
+		// то же самое можно записать как:
+		// let t = array[i]; array[i] = array[j]; array[j] = t
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+}
+
+// подсчёт вероятности для всех возможных вариантов
+let count = {
+	123: 0,
+	132: 0,
+	213: 0,
+	231: 0,
+	321: 0,
+	312: 0,
+};
+
+for (let i = 0; i < 1000000; i++) {
+	let array = [1, 2, 3];
+	shuffle(array);
+	count[array.join('')]++;
+}
+
+// показать количество всех возможных вариантов
+for (let key in count) {
+	alert(`${key}: ${count[key]}`);
+}
