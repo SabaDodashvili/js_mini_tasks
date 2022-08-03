@@ -242,3 +242,15 @@ function copySorted(arr) {
 
 console.log(arr);
 console.log(copySorted(arr));
+
+// 13) У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
+
+let vasya = { name: 'Вася', age: 25 };
+let petya = { name: 'Петя', age: 30 };
+let masha = { name: 'Маша', age: 28 };
+
+let users = [vasya, petya, masha];
+
+let names = users.map(el => el.name);
+
+console.log(names);
