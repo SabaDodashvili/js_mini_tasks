@@ -406,3 +406,19 @@ function getAverageAge(arr) {
 }
 
 console.log(getAverageAge(arr));
+
+// 18) Пусть arr – массив строк. Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+
+let strings = ['кришна', 'кришна', 'харе', 'харе', 'харе', 'харе', 'кришна', 'кришна', ':-O'];
+
+function unique(arr) {
+	let uniqueElemsArr = [];
+
+	for (const el of arr) {
+		if (!uniqueElemsArr.includes(el)) uniqueElemsArr.push(el);
+	}
+
+	return uniqueElemsArr;
+}
+
+console.log(unique(strings)); // кришна, харе, :-O
