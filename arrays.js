@@ -386,3 +386,23 @@ for (let i = 0; i < 1000000; i++) {
 for (let key in count) {
 	alert(`${key}: ${count[key]}`);
 }
+
+// 17) Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст. Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
+
+let vasya = { name: 'Вася', age: 25 };
+let petya = { name: 'Петя', age: 30 };
+let masha = { name: 'Маша', age: 29 };
+
+let arr = [vasya, petya, masha];
+
+function getAverageAge(arr) {
+	let avgAge = 0;
+
+	for (const el of arr) {
+		avgAge += el.age;
+	}
+
+	return avgAge / arr.length;
+}
+
+console.log(getAverageAge(arr));
