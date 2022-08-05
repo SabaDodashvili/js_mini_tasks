@@ -71,45 +71,91 @@ console.log(menu);
 // sum() returns the sum of saved values.
 // mul() multiplies saved values and returns the result.
 
-let calculator = {
-	numOne: null,
-	numTwo: null,
+// let calculator = {
+// 	numOne: null,
+// 	numTwo: null,
 
-	read() {
-		this.numOne = +prompt('შეიყვანეთ რიცხვი');
-		this.numTwo = +prompt('შეიყვანეთ რიცხვი');
+// 	read() {
+// 		this.numOne = +prompt('შეიყვანეთ რიცხვი');
+// 		this.numTwo = +prompt('შეიყვანეთ რიცხვი');
+// 	},
+
+// 	sum() {
+// 		return this.numOne + this.numTwo;
+// 	},
+
+// 	mul() {
+// 		return this.numOne * this.numTwo;
+// 	},
+// };
+
+// calculator.read();
+// console.log(calculator.sum());
+// console.log(calculator.mul());
+
+// // option-2
+
+// let calculator2 = {
+// 	sum() {
+// 		return this.a + this.b;
+// 	},
+
+// 	mul() {
+// 		return this.a * this.b;
+// 	},
+
+// 	read() {
+// 		this.a = +prompt('a?', 0);
+// 		this.b = +prompt('b?', 0);
+// 	},
+// };
+
+// calculator2.read();
+// console.log(calculator2.sum());
+// console.log(calculator2.mul());
+
+// 6) There’s a ladder object that allows to go up and down:
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//   },
+//   down() {
+//     this.step--;
+//   },
+//   showStep: function() { // shows the current step
+//     alert( this.step );
+//   }
+// };
+
+// Now, if we need to make several calls in sequence, can do it like this:
+
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// ladder.down();
+// ladder.showStep(); // 0
+
+// Modify the code of up, down and showStep to make the calls chainable, like this:
+
+// ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
+
+let ladder = {
+	step: 0,
+	up() {
+		this.step++;
+		return this;
 	},
-
-	sum() {
-		return this.numOne + this.numTwo;
+	down() {
+		this.step--;
+		return this;
 	},
-
-	mul() {
-		return this.numOne * this.numTwo;
+	showStep() {
+		alert(this.step);
+		return this;
 	},
 };
 
-calculator.read();
-console.log(calculator.sum());
-console.log(calculator.mul());
-
-// option-2
-
-let calculator2 = {
-	sum() {
-		return this.a + this.b;
-	},
-
-	mul() {
-		return this.a * this.b;
-	},
-
-	read() {
-		this.a = +prompt('a?', 0);
-		this.b = +prompt('b?', 0);
-	},
-};
-
-calculator2.read();
-console.log(calculator2.sum());
-console.log(calculator2.mul());
+ladder.up().up().down().showStep().down().showStep();
