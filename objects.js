@@ -65,3 +65,51 @@ function multiplyNumeric(obj) {
 multiplyNumeric(menu);
 
 console.log(menu);
+
+// 5) Create an object calculator with three methods:
+// read() prompts for two values and saves them as object properties with names a and b respectively.
+// sum() returns the sum of saved values.
+// mul() multiplies saved values and returns the result.
+
+let calculator = {
+	numOne: null,
+	numTwo: null,
+
+	read() {
+		this.numOne = +prompt('შეიყვანეთ რიცხვი');
+		this.numTwo = +prompt('შეიყვანეთ რიცხვი');
+	},
+
+	sum() {
+		return this.numOne + this.numTwo;
+	},
+
+	mul() {
+		return this.numOne * this.numTwo;
+	},
+};
+
+calculator.read();
+console.log(calculator.sum());
+console.log(calculator.mul());
+
+// option-2
+
+let calculator2 = {
+	sum() {
+		return this.a + this.b;
+	},
+
+	mul() {
+		return this.a * this.b;
+	},
+
+	read() {
+		this.a = +prompt('a?', 0);
+		this.b = +prompt('b?', 0);
+	},
+};
+
+calculator2.read();
+console.log(calculator2.sum());
+console.log(calculator2.mul());
