@@ -99,7 +99,7 @@ console.log(findMaximumDifference(arrOne, arrTwo));
 
 // 5) Определяет, сколько элементов находятся между двумя заданными элементами массива, значение в масиве не должны повторятся.
 
-let arr = [12, 15, 22, 24, 55, 123, 23, 12];
+let arr1 = [12, 15, 22, 24, 55, 123, 23, 12];
 
 function getNumberElBetween(arr, elOne, elTwo) {
 	let elOneIndex;
@@ -113,12 +113,12 @@ function getNumberElBetween(arr, elOne, elTwo) {
 	return Math.abs(elOneIndex - elTwoIndex) - 1;
 }
 
-console.log(getNumberElBetween(arr, 12, 123));
+console.log(getNumberElBetween(arr1, 12, 123));
 
 // 6) იპოვის  მასივის  იმ  ელემენტების  ჯამს,  რომლებიც  მოთავსებულია  ორ  მოცემულ
 // ელემენტს შორის.
 
-let arr = [12, 15, 22, 24, 55, 123, 23];
+let arr2 = [12, 15, 22, 24, 55, 123, 23];
 
 function getNumberElBetween(arr, elOne, elTwo) {
 	let flag = false;
@@ -134,17 +134,17 @@ function getNumberElBetween(arr, elOne, elTwo) {
 	return sumElements;
 }
 
-console.log(getNumberElBetween(arr, 12, 123));
+console.log(getNumberElBetween(arr2, 12, 123));
 
 // 7) მასივის დადებით ელემენტებს გადაწერს მეორე მასივში.
 
-let arr = [-12, -15, 22, 24, -55, -123, 23];
+let arr3 = [-12, -15, 22, 24, -55, -123, 23];
 
 function getPositivElementsArr(arr) {
 	return arr.filter(el => el > 0);
 }
 
-console.log(getPositivElementsArr(arr));
+console.log(getPositivElementsArr(arr3));
 
 // 8) Напишите функцию `camelize(str)`, которая преобразует строки вида «my-short-string» в «myShortString».
 // То есть дефисы удаляются, а все слова после них получают заглавную букву.
@@ -195,18 +195,18 @@ console.log(camelize('list-style-image'));
 // 9) Напишите функцию `filterRange(arr, a, b)`, которая принимает массив `arr`, ищет в нём элементы между `a` и `b` и отдаёт массив этих элементов.
 // Функция должна возвращать новый массив и не изменять исходный.
 
-let arr = [1, 3, 2, 3, 5, 6, 7, 8, 9, 11];
+let arr4 = [1, 3, 2, 3, 5, 6, 7, 8, 9, 11];
 
 function filterRange(arr, start, end) {
 	return arr.filter(el => el >= start && el <= end);
 }
 
-console.log(filterRange(arr, 2, 5));
+console.log(filterRange(arr4, 2, 5));
 
 // 10) Напишите функцию `filterRangeInPlace(arr, a, b)`, которая принимает массив `arr` и удаляет из него все значения кроме тех, которые находятся между `a` и `b`. То есть, проверка имеет вид `a ≤ arr[i] ≤ b`.
 // Функция должна изменять принимаемый массив и ничего не возвращать.
 
-let arr = [1, 3, 4, 5, 2, 7, 6, 9, 8];
+let arr5 = [1, 3, 4, 5, 2, 7, 6, 9, 8];
 
 function filterRangeInPlace(arr, start, end) {
 	for (let [i, el] of arr.entries()) {
@@ -217,62 +217,62 @@ function filterRangeInPlace(arr, start, end) {
 	}
 }
 
-filterRangeInPlace(arr, 3, 6);
+filterRangeInPlace(arr5, 3, 6);
 
-console.log(arr);
+console.log(arr5);
 
 // 11) Сортировать в порядке по убыванию.
 
-let arr = [1, 3, 4, 5, 2, 7, -5, 6, 9, 8];
+let arr6 = [1, 3, 4, 5, 2, 7, -5, 6, 9, 8];
 
 function sortRevers(arr) {
 	arr.sort((a, b) => b - a);
 }
 
-sortRevers(arr);
-console.log(arr);
+sortRevers(arr6);
+console.log(arr6);
 
 // 12) У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым. Создайте функцию copySorted(arr), которая будет возвращать такую копию.
 
-let arr = ['HTML', 'JavaScript', 'CSS'];
+let arr7 = ['HTML', 'JavaScript', 'CSS'];
 
 function copySorted(arr) {
 	return arr.concat().sort();
 }
 
-console.log(arr);
-console.log(copySorted(arr));
+console.log(arr7);
+console.log(copySorted(arr7));
 
 // 13) У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
 
-let vasya = { name: 'Вася', age: 25 };
-let petya = { name: 'Петя', age: 30 };
-let masha = { name: 'Маша', age: 28 };
+// let vasya = { name: 'Вася', age: 25 };
+// let petya = { name: 'Петя', age: 30 };
+// let masha = { name: 'Маша', age: 28 };
 
-let users = [vasya, petya, masha];
+// let users = [vasya, petya, masha];
 
-let names = users.map(el => el.name);
+// let names = users.map(el => el.name);
 
-console.log(names);
+// console.log(names);
 
 // 14) У вас есть массив объектов user, и у каждого из объектов есть name, surname и id. Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
 
 //РЕШЕНИЕ-1
-let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
-let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
-let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
+// let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
+// let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
+// let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
 
-let users = [vasya, petya, masha];
+// let users = [vasya, petya, masha];
 
-let usersMapped = users.map(el => {
-	let newObj = {};
-	newObj['fullName'] = `${el['name']} ${el['surname']}`;
-	newObj['id'] = el['id'];
+// let usersMapped = users.map(el => {
+// 	let newObj = {};
+// 	newObj['fullName'] = `${el['name']} ${el['surname']}`;
+// 	newObj['id'] = el['id'];
 
-	return newObj;
-});
+// 	return newObj;
+// });
 
-console.log(usersMapped);
+// console.log(usersMapped);
 
 //РЕШЕНИЕ-2
 let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
@@ -294,20 +294,20 @@ function sortByAge(arr) {
 	arr.sort((a, b) => a.age - b.age);
 }
 
-let vasya = { name: 'Вася', age: 25 };
-let petya = { name: 'Петя', age: 30 };
-let masha = { name: 'Маша', age: 28 };
+let vasya2 = { name: 'Вася', age: 25 };
+let petya2 = { name: 'Петя', age: 30 };
+let masha2 = { name: 'Маша', age: 28 };
 
-let arr = [vasya, petya, masha];
+let arr8 = [vasya2, petya2, masha2];
 
-sortByAge(arr);
+sortByAge(arr8);
 
-console.log(arr);
+console.log(arr8);
 
 // 16) Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива. Многократные прогоны через shuffle могут привести к разным последовательностям элементов.
 
 //РЕШЕНИЕ-1
-let arr = [1, 2, 3];
+let arr9 = [1, 2, 3];
 
 function shuffle(arr) {
 	let randomPos;
@@ -334,7 +334,7 @@ let s123 = 0,
 let resultsArr = [];
 
 for (let i = 0; i < 10000; i++) {
-	temp = shuffle(arr).join('');
+	temp = shuffle(arr9).join('');
 
 	if (temp == '123') s123++;
 	if (temp == '132') s132++;
@@ -389,11 +389,11 @@ for (let key in count) {
 
 // 17) Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст. Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
 
-let vasya = { name: 'Вася', age: 25 };
-let petya = { name: 'Петя', age: 30 };
-let masha = { name: 'Маша', age: 29 };
+let vasya3 = { name: 'Вася', age: 25 };
+let petya3 = { name: 'Петя', age: 30 };
+let masha3 = { name: 'Маша', age: 29 };
 
-let arr = [vasya, petya, masha];
+let arr11 = [vasya3, petya3, masha3];
 
 function getAverageAge(arr) {
 	let avgAge = 0;
@@ -405,7 +405,7 @@ function getAverageAge(arr) {
 	return avgAge / arr.length;
 }
 
-console.log(getAverageAge(arr));
+console.log(getAverageAge(arr11));
 
 // 18) Пусть arr – массив строк. Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
 
