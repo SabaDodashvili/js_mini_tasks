@@ -353,39 +353,39 @@ console.log(s312);
 
 //РЕШЕНИЕ-2
 
-function shuffle(array) {
-	for (let i = array.length - 1; i > 0; i--) {
-		let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+// function shuffle(array) {
+// 	for (let i = array.length - 1; i > 0; i--) {
+// 		let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
 
-		// поменять элементы местами
-		// мы используем для этого синтаксис "деструктурирующее присваивание"
-		// подробнее о нём - в следующих главах
-		// то же самое можно записать как:
-		// let t = array[i]; array[i] = array[j]; array[j] = t
-		[array[i], array[j]] = [array[j], array[i]];
-	}
-}
+// 		// поменять элементы местами
+// 		// мы используем для этого синтаксис "деструктурирующее присваивание"
+// 		// подробнее о нём - в следующих главах
+// 		// то же самое можно записать как:
+// 		// let t = array[i]; array[i] = array[j]; array[j] = t
+// 		[array[i], array[j]] = [array[j], array[i]];
+// 	}
+// }
 
-// подсчёт вероятности для всех возможных вариантов
-let count = {
-	123: 0,
-	132: 0,
-	213: 0,
-	231: 0,
-	321: 0,
-	312: 0,
-};
+// // подсчёт вероятности для всех возможных вариантов
+// let count = {
+// 	123: 0,
+// 	132: 0,
+// 	213: 0,
+// 	231: 0,
+// 	321: 0,
+// 	312: 0,
+// };
 
-for (let i = 0; i < 1000000; i++) {
-	let array = [1, 2, 3];
-	shuffle(array);
-	count[array.join('')]++;
-}
+// for (let i = 0; i < 1000000; i++) {
+// 	let array = [1, 2, 3];
+// 	shuffle(array);
+// 	count[array.join('')]++;
+// }
 
-// показать количество всех возможных вариантов
-for (let key in count) {
-	alert(`${key}: ${count[key]}`);
-}
+// // показать количество всех возможных вариантов
+// for (let key in count) {
+// 	alert(`${key}: ${count[key]}`);
+// }
 
 // 17) Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст. Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
 
@@ -422,3 +422,22 @@ function unique(arr) {
 }
 
 console.log(unique(strings)); // кришна, харе, :-O
+
+// 19) მასივის  ლუწინდექსიან  ელემენტებს  გადაწერს  მეორე  მასივში,  ხოლო  კენტინდექსიან
+// ელემენტებს კი - მესამე მასივში.
+
+let arr12 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+function sortingByArrs(arr) {
+	let evenNum = [];
+	let oddNum = [];
+
+	for (const el of arr) {
+		if (el % 2 == 0) evenNum.push(el);
+		else oddNum.push(el);
+	}
+
+	return { evenNum, oddNum };
+}
+
+console.log(sortingByArrs(arr12));
