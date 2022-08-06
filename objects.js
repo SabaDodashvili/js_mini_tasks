@@ -153,7 +153,7 @@ let ladder = {
 		return this;
 	},
 	showStep() {
-		alert(this.step);
+		console.log(this.step);
 		return this;
 	},
 };
