@@ -1,4 +1,7 @@
-// 1) Напишите функцию sumInput(), которая: Просит пользователя ввести значения, используя prompt и сохраняет их в массив. Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена». Подсчитывает и возвращает сумму элементов массива. P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+// 1) Write the function sumInput() that:Asks the user for values using prompt and stores the values in the array.
+//     Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
+//     Calculates and returns the sum of array items.
+// P.S. A zero 0 is a valid number, please don’t stop the input on zero.
 
 function sumInput() {
 	let arr = [];
@@ -16,15 +19,15 @@ function sumInput() {
 
 console.log(sumInput());
 
-//алтернативное решения
+//alternative solution
 
 function sumInput() {
 	let numbers = [];
 
 	while (true) {
-		let value = prompt('Введите число', 0);
+		let value = prompt('input number', 0);
 
-		// Прекращаем ввод?
+		// stop input?
 		if (value === '' || value === null || !isFinite(value)) break;
 
 		numbers.push(+value);
@@ -39,7 +42,7 @@ function sumInput() {
 
 alert(sumInput());
 
-// 2) найти минимальный элемент масива:
+// 2) find the minimum element of an array:
 
 arr = [-11, -2, 3, 4, -29, -30, 6];
 
@@ -55,7 +58,7 @@ function findMinElement(array) {
 
 console.log(findMinElement(arr));
 
-// 3) найдите индекс максимального елемента в масиве.
+// 3) find the index of the maximum element in the array.
 
 let myArr = [1, 34, 1212, -12, 3123, 412, 551];
 
@@ -73,7 +76,7 @@ function getArrMaxElementIndex(arr) {
 	return maxElIndex;
 }
 
-//более короткий в написании но выполняется в 2 раза больше
+//shorter in writing but performed 2 times more
 
 // function getArrMaxElementIndex(arr) {
 // 	return arr.indexOf(Math.max.apply(null, arr));
@@ -81,7 +84,7 @@ function getArrMaxElementIndex(arr) {
 
 console.log(getArrMaxElementIndex(myArr));
 
-// 4) есть масиов N10 и M10 найдите максимальное различие между елементами с одинаковыми индексами и верните это различие.
+// 4) there are arrays N10 and M10 find the maximum difference between elements with the same indexes and return this difference.
 let arrOne = [12, 15, 22, 24, 55, 123, 23];
 let arrTwo = [12, 15, 22, 24, 55, 113, 23];
 
@@ -92,12 +95,12 @@ function findMaximumDifference(arrOne, arrTwo) {
 		if (Math.abs(arrOne[i] - arrTwo[i]) > Math.abs(maxValue)) maxValue = arrOne[i] - arrTwo[i];
 	}
 
-	return maxValue === 0 ? 'масивы идентичны' : maxValue;
+	return maxValue === 0 ? 'მასივები იდენტურია' : maxValue;
 }
 
 console.log(findMaximumDifference(arrOne, arrTwo));
 
-// 5) Определяет, сколько элементов находятся между двумя заданными элементами массива, значение в масиве не должны повторятся.
+// 5) Determines how many elements are between two given array elements, the value in the array must not be repeated.
 
 let arr1 = [12, 15, 22, 24, 55, 123, 23, 12];
 
@@ -146,10 +149,10 @@ function getPositivElementsArr(arr) {
 
 console.log(getPositivElementsArr(arr3));
 
-// 8) Напишите функцию `camelize(str)`, которая преобразует строки вида «my-short-string» в «myShortString».
-// То есть дефисы удаляются, а все слова после них получают заглавную букву.
+// 8) Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
+// That is: removes all dashes, each word after dash becomes uppercased.
 
-//РЕШЕНИЕ - 1
+//solution - 1
 function camelize(str) {
 	let pos = 0;
 	let newStr = str;
@@ -169,7 +172,7 @@ function camelize(str) {
 
 console.log(camelize('list-style-image'));
 
-//РЕШЕНИЕ - 2
+//solution - 2
 function camelize(str) {
 	let tempArr = str.split('-');
 
@@ -182,7 +185,7 @@ function camelize(str) {
 
 console.log(camelize('list-style-image'));
 
-//РЕШЕНИЕ - 3
+//solution - 3
 function camelize(str) {
 	return str
 		.split('-')
@@ -192,8 +195,8 @@ function camelize(str) {
 
 console.log(camelize('list-style-image'));
 
-// 9) Напишите функцию `filterRange(arr, a, b)`, которая принимает массив `arr`, ищет в нём элементы между `a` и `b` и отдаёт массив этих элементов.
-// Функция должна возвращать новый массив и не изменять исходный.
+// 9) Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
+// The function should not modify the array. It should return the new array.
 
 let arr4 = [1, 3, 2, 3, 5, 6, 7, 8, 9, 11];
 
@@ -203,8 +206,8 @@ function filterRange(arr, start, end) {
 
 console.log(filterRange(arr4, 2, 5));
 
-// 10) Напишите функцию `filterRangeInPlace(arr, a, b)`, которая принимает массив `arr` и удаляет из него все значения кроме тех, которые находятся между `a` и `b`. То есть, проверка имеет вид `a ≤ arr[i] ≤ b`.
-// Функция должна изменять принимаемый массив и ничего не возвращать.
+// 10) Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
+// The function should only modify the array. It should not return anything.
 
 let arr5 = [1, 3, 4, 5, 2, 7, 6, 9, 8];
 
@@ -221,7 +224,7 @@ filterRangeInPlace(arr5, 3, 6);
 
 console.log(arr5);
 
-// 11) Сортировать в порядке по убыванию.
+// 11) Sort in decreasing order
 
 let arr6 = [1, 3, 4, 5, 2, 7, -5, 6, 9, 8];
 
@@ -232,7 +235,8 @@ function sortRevers(arr) {
 sortRevers(arr6);
 console.log(arr6);
 
-// 12) У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым. Создайте функцию copySorted(arr), которая будет возвращать такую копию.
+// 12) We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+// Create a function copySorted(arr) that returns such a copy.
 
 let arr7 = ['HTML', 'JavaScript', 'CSS'];
 
@@ -243,11 +247,11 @@ function copySorted(arr) {
 console.log(arr7);
 console.log(copySorted(arr7));
 
-// 13) У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
+// 13) You have an array of user objects, each one has user.name. Write the code that converts it into an array of names.
 
-// let vasya = { name: 'Вася', age: 25 };
-// let petya = { name: 'Петя', age: 30 };
-// let masha = { name: 'Маша', age: 28 };
+// let vasya = { name: 'John', age: 25 };
+// let petya = { name: 'Pete', age: 30 };
+// let masha = { name: 'Mary', age: 28 };
 
 // let users = [vasya, petya, masha];
 
@@ -255,12 +259,13 @@ console.log(copySorted(arr7));
 
 // console.log(names);
 
-// 14) У вас есть массив объектов user, и у каждого из объектов есть name, surname и id. Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
+// 14) You have an array of user objects, each one has name, surname and id.
+// Write the code to create another array from it, of objects with id and fullName, where fullName is generated from name and surname.
 
-//РЕШЕНИЕ-1
-// let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
-// let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
-// let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
+//solution-1
+// let vasya = { name: 'John', surname: 'vinmeshvili', id: 1 };
+// let petya = { name: 'Pete', surname: 'rameshvili', id: 2 };
+// let masha = { name: 'Mary', surname: 'sadmeshvili', id: 3 };
 
 // let users = [vasya, petya, masha];
 
@@ -274,10 +279,10 @@ console.log(copySorted(arr7));
 
 // console.log(usersMapped);
 
-//РЕШЕНИЕ-2
-let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
-let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
-let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
+//solution-2
+let vasya = { name: 'John', surname: 'vinmeshvili', id: 1 };
+let petya = { name: 'Pete', surname: 'rameshvili', id: 2 };
+let masha = { name: 'Mary', surname: 'sadmeshvili', id: 3 };
 
 let users = [vasya, petya, masha];
 
@@ -288,15 +293,15 @@ let usersMapped = users.map(el => ({
 
 console.log(usersMapped);
 
-// 15 ) Напишите функцию sortByAge(users), которая принимает массив объектов со свойством aga и сортирует их по нему.
+// 15 ) Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
 
 function sortByAge(arr) {
 	arr.sort((a, b) => a.age - b.age);
 }
 
-let vasya2 = { name: 'Вася', age: 25 };
-let petya2 = { name: 'Петя', age: 30 };
-let masha2 = { name: 'Маша', age: 28 };
+let vasya2 = { name: 'John', age: 25 };
+let petya2 = { name: 'Pete', age: 30 };
+let masha2 = { name: 'Mary', age: 28 };
 
 let arr8 = [vasya2, petya2, masha2];
 
@@ -304,9 +309,10 @@ sortByAge(arr8);
 
 console.log(arr8);
 
-// 16) Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива. Многократные прогоны через shuffle могут привести к разным последовательностям элементов.
+// 16) Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+// Multiple runs of shuffle may lead to different orders of elements. For instance:
 
-//РЕШЕНИЕ-1
+//solution-1
 let arr9 = [1, 2, 3];
 
 function shuffle(arr) {
@@ -323,7 +329,7 @@ function shuffle(arr) {
 
 	return randomArr;
 }
-//проверка
+//check
 
 let s123 = 0,
 	s132 = 0,
@@ -351,22 +357,22 @@ console.log(s231);
 console.log(s321);
 console.log(s312);
 
-//РЕШЕНИЕ-2
+//solution-2
 
 // function shuffle(array) {
 // 	for (let i = array.length - 1; i > 0; i--) {
-// 		let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+// 		let j = Math.floor(Math.random() * (i + 1)); // ndom index from 0 to i
 
-// 		// поменять элементы местами
-// 		// мы используем для этого синтаксис "деструктурирующее присваивание"
-// 		// подробнее о нём - в следующих главах
-// 		// то же самое можно записать как:
-// 		// let t = array[i]; array[i] = array[j]; array[j] = t
+// swap elements array[i] and array[j]
+// we use "destructuring assignment" syntax to achieve that
+// you'll find more details about that syntax in later chapters
+// same can be written as:
+// let t = array[i]; array[i] = array[j]; array[j] = t
 // 		[array[i], array[j]] = [array[j], array[i]];
 // 	}
 // }
 
-// // подсчёт вероятности для всех возможных вариантов
+// // counts of appearances for all possible permutations
 // let count = {
 // 	123: 0,
 // 	132: 0,
@@ -382,16 +388,17 @@ console.log(s312);
 // 	count[array.join('')]++;
 // }
 
-// // показать количество всех возможных вариантов
+// // show counts of all possible permutations
 // for (let key in count) {
 // 	alert(`${key}: ${count[key]}`);
 // }
 
-// 17) Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст. Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
+// 17) Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+// The formula for the average is (age1 + age2 + ... + ageN) / N.
 
-let vasya3 = { name: 'Вася', age: 25 };
-let petya3 = { name: 'Петя', age: 30 };
-let masha3 = { name: 'Маша', age: 29 };
+let vasya3 = { name: 'John', age: 25 };
+let petya3 = { name: 'Pete', age: 30 };
+let masha3 = { name: 'Mary', age: 29 };
 
 let arr11 = [vasya3, petya3, masha3];
 
@@ -407,9 +414,9 @@ function getAverageAge(arr) {
 
 console.log(getAverageAge(arr11));
 
-// 18) Пусть arr – массив строк. Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+// 18) Let arr be an array.Create a function unique(arr) that should return an array with unique items of arr.
 
-let strings = ['кришна', 'кришна', 'харе', 'харе', 'харе', 'харе', 'кришна', 'кришна', ':-O'];
+let strings = ['Hare', 'Krishna', 'Hare', 'Krishna', 'Krishna', 'Krishna', 'Hare', 'Hare', ':-O'];
 
 function unique(arr) {
 	let uniqueElemsArr = [];
@@ -421,10 +428,9 @@ function unique(arr) {
 	return uniqueElemsArr;
 }
 
-console.log(unique(strings)); // кришна, харе, :-O
+console.log(unique(strings)); // Krishna, Hare, :-O
 
-// 19) მასივის  ლუწინდექსიან  ელემენტებს  გადაწერს  მეორე  მასივში,  ხოლო  კენტინდექსიან
-// ელემენტებს კი - მესამე მასივში.
+// 19) Even-indexed elements of the array will be copied into the second array, and even-indexed elements will be copied into the second array And the elements - in the third array.
 
 let arr12 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
