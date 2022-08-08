@@ -447,3 +447,15 @@ function sortingByArrs(arr) {
 }
 
 console.log(sortingByArrs(arr12));
+
+// 20) მოახდენს ზრდადობის მიხედვით დალაგებული ორი მასივის შერწყმას და შექმნის ახალ
+// ზრდადობის მიხედვით დალაგებულ მესამე მასივს.
+
+let arr13 = [1, 5, 7, 4, 8, 9];
+let arr14 = [11, 15, 14, 13, 12, 16, 17];
+
+function concatAndSortArrs(arrOne, arrTwo) {
+	return arr13.concat(arr14).sort((a, b) => a - b);
+}
+
+console.log(concatAndSortArrs(arr13, arr14));
