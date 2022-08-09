@@ -459,3 +459,13 @@ function concatAndSortArrs(arrOne, arrTwo) {
 }
 
 console.log(concatAndSortArrs(arr13, arr14));
+
+// 21) მასივის უარყოფით ელემენტებს შეცვლის 0-ებით
+
+let arr15 = [1, -2, 0, 3, -5, 21];
+
+function changeNegativNums(arr) {
+	return arr.map(el => (el > 0 ? el : 0));
+}
+
+console.log(changeNegativNums(arr15));
