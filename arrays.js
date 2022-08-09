@@ -1,471 +1,482 @@
-// 1) Write the function sumInput() that:Asks the user for values using prompt and stores the values in the array.
-//     Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
-//     Calculates and returns the sum of array items.
-// P.S. A zero 0 is a valid number, please don’t stop the input on zero.
+// // 1) Write the function sumInput() that:Asks the user for values using prompt and stores the values in the array.
+// //     Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
+// //     Calculates and returns the sum of array items.
+// // P.S. A zero 0 is a valid number, please don’t stop the input on zero.
 
-function sumInput() {
-	let arr = [];
-	let a = prompt('შეიყვანეთ რიცხვი');
-	let sum = 0;
+// function sumInput() {
+// 	let arr = [];
+// 	let a = prompt('შეიყვანეთ რიცხვი');
+// 	let sum = 0;
 
-	while (!isNaN(a) && a !== null && a !== '') {
-		arr.push(a);
-		a = prompt('შეიყვნაეთ რიცხვი');
-		sum += +a;
-	}
+// 	while (!isNaN(a) && a !== null && a !== '') {
+// 		arr.push(a);
+// 		a = prompt('შეიყვნაეთ რიცხვი');
+// 		sum += +a;
+// 	}
 
-	return sum;
-}
-
-console.log(sumInput());
-
-//alternative solution
-
-function sumInput() {
-	let numbers = [];
-
-	while (true) {
-		let value = prompt('input number', 0);
-
-		// stop input?
-		if (value === '' || value === null || !isFinite(value)) break;
-
-		numbers.push(+value);
-	}
-
-	let sum = 0;
-	for (let number of numbers) {
-		sum += number;
-	}
-	return sum;
-}
-
-alert(sumInput());
-
-// 2) find the minimum element of an array:
-
-arr = [-11, -2, 3, 4, -29, -30, 6];
-
-function findMinElement(array) {
-	let minEl = array[0];
-
-	for (let i = 0; i < array.length; i++) {
-		if (array[i] < minEl) minEl = array[i];
-	}
-
-	return minEl;
-}
-
-console.log(findMinElement(arr));
-
-// 3) find the index of the maximum element in the array.
-
-let myArr = [1, 34, 1212, -12, 3123, 412, 551];
-
-function getArrMaxElementIndex(arr) {
-	let maxEl = arr[0];
-	let maxElIndex = [0];
-
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] > maxEl) {
-			maxEl = arr[i];
-			maxElIndex = i;
-		}
-	}
-
-	return maxElIndex;
-}
-
-//shorter in writing but performed 2 times more
-
-// function getArrMaxElementIndex(arr) {
-// 	return arr.indexOf(Math.max.apply(null, arr));
+// 	return sum;
 // }
 
-console.log(getArrMaxElementIndex(myArr));
+// console.log(sumInput());
 
-// 4) there are arrays N10 and M10 find the maximum difference between elements with the same indexes and return this difference.
-let arrOne = [12, 15, 22, 24, 55, 123, 23];
-let arrTwo = [12, 15, 22, 24, 55, 113, 23];
+// //alternative solution
 
-function findMaximumDifference(arrOne, arrTwo) {
-	let maxValue = 0;
+// function sumInput() {
+// 	let numbers = [];
 
-	for (let i = 0; i < arrOne.length; i++) {
-		if (Math.abs(arrOne[i] - arrTwo[i]) > Math.abs(maxValue)) maxValue = arrOne[i] - arrTwo[i];
-	}
+// 	while (true) {
+// 		let value = prompt('input number', 0);
 
-	return maxValue === 0 ? 'მასივები იდენტურია' : maxValue;
-}
+// 		// stop input?
+// 		if (value === '' || value === null || !isFinite(value)) break;
 
-console.log(findMaximumDifference(arrOne, arrTwo));
+// 		numbers.push(+value);
+// 	}
 
-// 5) Determines how many elements are between two given array elements, the value in the array must not be repeated.
+// 	let sum = 0;
+// 	for (let number of numbers) {
+// 		sum += number;
+// 	}
+// 	return sum;
+// }
 
-let arr1 = [12, 15, 22, 24, 55, 123, 23, 12];
+// alert(sumInput());
 
-function getNumberElBetween(arr, elOne, elTwo) {
-	let elOneIndex;
-	let elTwoIndex;
+// // 2) find the minimum element of an array:
 
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === elOne) elOneIndex = i;
-		else if (arr[i] === elTwo) elTwoIndex = i;
-	}
+// arr = [-11, -2, 3, 4, -29, -30, 6];
 
-	return Math.abs(elOneIndex - elTwoIndex) - 1;
-}
+// function findMinElement(array) {
+// 	let minEl = array[0];
 
-console.log(getNumberElBetween(arr1, 12, 123));
+// 	for (let i = 0; i < array.length; i++) {
+// 		if (array[i] < minEl) minEl = array[i];
+// 	}
 
-// 6) იპოვის  მასივის  იმ  ელემენტების  ჯამს,  რომლებიც  მოთავსებულია  ორ  მოცემულ
-// ელემენტს შორის.
+// 	return minEl;
+// }
 
-let arr2 = [12, 15, 22, 24, 55, 123, 23];
+// console.log(findMinElement(arr));
 
-function getNumberElBetween(arr, elOne, elTwo) {
-	let flag = false;
-	let sumElements = 0;
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === elOne || arr[i] === elTwo) {
-			flag = !flag;
-			continue;
-		}
-		if (flag) sumElements += arr[i];
-	}
+// // 3) find the index of the maximum element in the array.
 
-	return sumElements;
-}
+// let myArr = [1, 34, 1212, -12, 3123, 412, 551];
 
-console.log(getNumberElBetween(arr2, 12, 123));
+// function getArrMaxElementIndex(arr) {
+// 	let maxEl = arr[0];
+// 	let maxElIndex = [0];
 
-// 7) მასივის დადებით ელემენტებს გადაწერს მეორე მასივში.
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (arr[i] > maxEl) {
+// 			maxEl = arr[i];
+// 			maxElIndex = i;
+// 		}
+// 	}
 
-let arr3 = [-12, -15, 22, 24, -55, -123, 23];
+// 	return maxElIndex;
+// }
 
-function getPositivElementsArr(arr) {
-	return arr.filter(el => el > 0);
-}
+// //shorter in writing but performed 2 times more
 
-console.log(getPositivElementsArr(arr3));
+// // function getArrMaxElementIndex(arr) {
+// // 	return arr.indexOf(Math.max.apply(null, arr));
+// // }
 
-// 8) Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
-// That is: removes all dashes, each word after dash becomes uppercased.
+// console.log(getArrMaxElementIndex(myArr));
 
-//solution - 1
-function camelize(str) {
-	let pos = 0;
-	let newStr = str;
-	let foundPos = 0;
+// // 4) there are arrays N10 and M10 find the maximum difference between elements with the same indexes and return this difference.
+// let arrOne = [12, 15, 22, 24, 55, 123, 23];
+// let arrTwo = [12, 15, 22, 24, 55, 113, 23];
 
-	while (true) {
-		foundPos = newStr.indexOf('-', pos);
+// function findMaximumDifference(arrOne, arrTwo) {
+// 	let maxValue = 0;
 
-		if (foundPos === -1) break;
+// 	for (let i = 0; i < arrOne.length; i++) {
+// 		if (Math.abs(arrOne[i] - arrTwo[i]) > Math.abs(maxValue)) maxValue = arrOne[i] - arrTwo[i];
+// 	}
 
-		newStr = newStr.slice(0, foundPos) + newStr[foundPos + 1].toUpperCase() + newStr.slice(foundPos + 2);
-		pos = foundPos + 1;
-	}
+// 	return maxValue === 0 ? 'მასივები იდენტურია' : maxValue;
+// }
 
-	return newStr;
-}
+// console.log(findMaximumDifference(arrOne, arrTwo));
 
-console.log(camelize('list-style-image'));
+// // 5) Determines how many elements are between two given array elements, the value in the array must not be repeated.
 
-//solution - 2
-function camelize(str) {
-	let tempArr = str.split('-');
+// let arr1 = [12, 15, 22, 24, 55, 123, 23, 12];
 
-	for (let [i, el] of tempArr.entries()) {
-		if (i !== 0) tempArr[i] = el.slice(0, 1).toUpperCase() + el.slice(1);
-	}
+// function getNumberElBetween(arr, elOne, elTwo) {
+// 	let elOneIndex;
+// 	let elTwoIndex;
 
-	return tempArr.join('');
-}
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (arr[i] === elOne) elOneIndex = i;
+// 		else if (arr[i] === elTwo) elTwoIndex = i;
+// 	}
 
-console.log(camelize('list-style-image'));
+// 	return Math.abs(elOneIndex - elTwoIndex) - 1;
+// }
 
-//solution - 3
-function camelize(str) {
-	return str
-		.split('-')
-		.map((el, index) => (index !== 0 ? el.slice(0, 1).toUpperCase() + el.slice(1) : el))
-		.join('');
-}
+// console.log(getNumberElBetween(arr1, 12, 123));
 
-console.log(camelize('list-style-image'));
+// // 6) იპოვის  მასივის  იმ  ელემენტების  ჯამს,  რომლებიც  მოთავსებულია  ორ  მოცემულ
+// // ელემენტს შორის.
 
-// 9) Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
-// The function should not modify the array. It should return the new array.
+// let arr2 = [12, 15, 22, 24, 55, 123, 23];
 
-let arr4 = [1, 3, 2, 3, 5, 6, 7, 8, 9, 11];
+// function getNumberElBetween(arr, elOne, elTwo) {
+// 	let flag = false;
+// 	let sumElements = 0;
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (arr[i] === elOne || arr[i] === elTwo) {
+// 			flag = !flag;
+// 			continue;
+// 		}
+// 		if (flag) sumElements += arr[i];
+// 	}
 
-function filterRange(arr, start, end) {
-	return arr.filter(el => el >= start && el <= end);
-}
+// 	return sumElements;
+// }
 
-console.log(filterRange(arr4, 2, 5));
+// console.log(getNumberElBetween(arr2, 12, 123));
 
-// 10) Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
-// The function should only modify the array. It should not return anything.
+// // 7) მასივის დადებით ელემენტებს გადაწერს მეორე მასივში.
 
-let arr5 = [1, 3, 4, 5, 2, 7, 6, 9, 8];
+// let arr3 = [-12, -15, 22, 24, -55, -123, 23];
 
-function filterRangeInPlace(arr, start, end) {
-	for (let [i, el] of arr.entries()) {
-		if (el < start || el > end) {
-			arr.splice(i, 1);
-			i--;
-		}
-	}
-}
+// function getPositivElementsArr(arr) {
+// 	return arr.filter(el => el > 0);
+// }
 
-filterRangeInPlace(arr5, 3, 6);
+// console.log(getPositivElementsArr(arr3));
 
-console.log(arr5);
+// // 8) Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
+// // That is: removes all dashes, each word after dash becomes uppercased.
 
-// 11) Sort in decreasing order
+// //solution - 1
+// function camelize(str) {
+// 	let pos = 0;
+// 	let newStr = str;
+// 	let foundPos = 0;
 
-let arr6 = [1, 3, 4, 5, 2, 7, -5, 6, 9, 8];
+// 	while (true) {
+// 		foundPos = newStr.indexOf('-', pos);
 
-function sortRevers(arr) {
-	arr.sort((a, b) => b - a);
-}
+// 		if (foundPos === -1) break;
 
-sortRevers(arr6);
-console.log(arr6);
+// 		newStr = newStr.slice(0, foundPos) + newStr[foundPos + 1].toUpperCase() + newStr.slice(foundPos + 2);
+// 		pos = foundPos + 1;
+// 	}
 
-// 12) We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
-// Create a function copySorted(arr) that returns such a copy.
+// 	return newStr;
+// }
 
-let arr7 = ['HTML', 'JavaScript', 'CSS'];
+// console.log(camelize('list-style-image'));
 
-function copySorted(arr) {
-	return arr.concat().sort();
-}
+// //solution - 2
+// function camelize(str) {
+// 	let tempArr = str.split('-');
 
-console.log(arr7);
-console.log(copySorted(arr7));
+// 	for (let [i, el] of tempArr.entries()) {
+// 		if (i !== 0) tempArr[i] = el.slice(0, 1).toUpperCase() + el.slice(1);
+// 	}
 
-// 13) You have an array of user objects, each one has user.name. Write the code that converts it into an array of names.
+// 	return tempArr.join('');
+// }
 
-// let vasya = { name: 'John', age: 25 };
-// let petya = { name: 'Pete', age: 30 };
-// let masha = { name: 'Mary', age: 28 };
+// console.log(camelize('list-style-image'));
 
-// let users = [vasya, petya, masha];
+// //solution - 3
+// function camelize(str) {
+// 	return str
+// 		.split('-')
+// 		.map((el, index) => (index !== 0 ? el.slice(0, 1).toUpperCase() + el.slice(1) : el))
+// 		.join('');
+// }
 
-// let names = users.map(el => el.name);
+// console.log(camelize('list-style-image'));
 
-// console.log(names);
+// // 9) Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
+// // The function should not modify the array. It should return the new array.
 
-// 14) You have an array of user objects, each one has name, surname and id.
-// Write the code to create another array from it, of objects with id and fullName, where fullName is generated from name and surname.
+// let arr4 = [1, 3, 2, 3, 5, 6, 7, 8, 9, 11];
 
-//solution-1
+// function filterRange(arr, start, end) {
+// 	return arr.filter(el => el >= start && el <= end);
+// }
+
+// console.log(filterRange(arr4, 2, 5));
+
+// // 10) Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
+// // The function should only modify the array. It should not return anything.
+
+// let arr5 = [1, 3, 4, 5, 2, 7, 6, 9, 8];
+
+// function filterRangeInPlace(arr, start, end) {
+// 	for (let [i, el] of arr.entries()) {
+// 		if (el < start || el > end) {
+// 			arr.splice(i, 1);
+// 			i--;
+// 		}
+// 	}
+// }
+
+// filterRangeInPlace(arr5, 3, 6);
+
+// console.log(arr5);
+
+// // 11) Sort in decreasing order
+
+// let arr6 = [1, 3, 4, 5, 2, 7, -5, 6, 9, 8];
+
+// function sortRevers(arr) {
+// 	arr.sort((a, b) => b - a);
+// }
+
+// sortRevers(arr6);
+// console.log(arr6);
+
+// // 12) We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+// // Create a function copySorted(arr) that returns such a copy.
+
+// let arr7 = ['HTML', 'JavaScript', 'CSS'];
+
+// function copySorted(arr) {
+// 	return arr.concat().sort();
+// }
+
+// console.log(arr7);
+// console.log(copySorted(arr7));
+
+// // 13) You have an array of user objects, each one has user.name. Write the code that converts it into an array of names.
+
+// // let vasya = { name: 'John', age: 25 };
+// // let petya = { name: 'Pete', age: 30 };
+// // let masha = { name: 'Mary', age: 28 };
+
+// // let users = [vasya, petya, masha];
+
+// // let names = users.map(el => el.name);
+
+// // console.log(names);
+
+// // 14) You have an array of user objects, each one has name, surname and id.
+// // Write the code to create another array from it, of objects with id and fullName, where fullName is generated from name and surname.
+
+// //solution-1
+// // let vasya = { name: 'John', surname: 'vinmeshvili', id: 1 };
+// // let petya = { name: 'Pete', surname: 'rameshvili', id: 2 };
+// // let masha = { name: 'Mary', surname: 'sadmeshvili', id: 3 };
+
+// // let users = [vasya, petya, masha];
+
+// // let usersMapped = users.map(el => {
+// // 	let newObj = {};
+// // 	newObj['fullName'] = `${el['name']} ${el['surname']}`;
+// // 	newObj['id'] = el['id'];
+
+// // 	return newObj;
+// // });
+
+// // console.log(usersMapped);
+
+// //solution-2
 // let vasya = { name: 'John', surname: 'vinmeshvili', id: 1 };
 // let petya = { name: 'Pete', surname: 'rameshvili', id: 2 };
 // let masha = { name: 'Mary', surname: 'sadmeshvili', id: 3 };
 
 // let users = [vasya, petya, masha];
 
-// let usersMapped = users.map(el => {
-// 	let newObj = {};
-// 	newObj['fullName'] = `${el['name']} ${el['surname']}`;
-// 	newObj['id'] = el['id'];
-
-// 	return newObj;
-// });
+// let usersMapped = users.map(el => ({
+// 	fullName: `${el.name} ${el.surname}`,
+// 	id: el.id,
+// }));
 
 // console.log(usersMapped);
 
-//solution-2
-let vasya = { name: 'John', surname: 'vinmeshvili', id: 1 };
-let petya = { name: 'Pete', surname: 'rameshvili', id: 2 };
-let masha = { name: 'Mary', surname: 'sadmeshvili', id: 3 };
+// // 15 ) Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
 
-let users = [vasya, petya, masha];
+// function sortByAge(arr) {
+// 	arr.sort((a, b) => a.age - b.age);
+// }
 
-let usersMapped = users.map(el => ({
-	fullName: `${el.name} ${el.surname}`,
-	id: el.id,
-}));
+// let vasya2 = { name: 'John', age: 25 };
+// let petya2 = { name: 'Pete', age: 30 };
+// let masha2 = { name: 'Mary', age: 28 };
 
-console.log(usersMapped);
+// let arr8 = [vasya2, petya2, masha2];
 
-// 15 ) Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+// sortByAge(arr8);
 
-function sortByAge(arr) {
-	arr.sort((a, b) => a.age - b.age);
-}
+// console.log(arr8);
 
-let vasya2 = { name: 'John', age: 25 };
-let petya2 = { name: 'Pete', age: 30 };
-let masha2 = { name: 'Mary', age: 28 };
+// // 16) Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+// // Multiple runs of shuffle may lead to different orders of elements. For instance:
 
-let arr8 = [vasya2, petya2, masha2];
+// //solution-1
+// let arr9 = [1, 2, 3];
 
-sortByAge(arr8);
+// function shuffle(arr) {
+// 	let randomPos;
+// 	let randomArr = [];
 
-console.log(arr8);
+// 	while (true) {
+// 		if (randomArr.length === 3) break;
 
-// 16) Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
-// Multiple runs of shuffle may lead to different orders of elements. For instance:
-
-//solution-1
-let arr9 = [1, 2, 3];
-
-function shuffle(arr) {
-	let randomPos;
-	let randomArr = [];
-
-	while (true) {
-		if (randomArr.length === 3) break;
-
-		randomPos = Math.floor(Math.random() * arr.length);
-		if (randomArr.includes(arr[randomPos])) continue;
-		else randomArr.push(arr[randomPos]);
-	}
-
-	return randomArr;
-}
-//check
-
-let s123 = 0,
-	s132 = 0,
-	s213 = 0,
-	s231 = 0,
-	s321 = 0,
-	s312 = 0;
-let resultsArr = [];
-
-for (let i = 0; i < 10000; i++) {
-	temp = shuffle(arr9).join('');
-
-	if (temp == '123') s123++;
-	if (temp == '132') s132++;
-	if (temp == '213') s213++;
-	if (temp == '231') s231++;
-	if (temp == '321') s321++;
-	if (temp == '312') s312++;
-}
-
-console.log(s123);
-console.log(s132);
-console.log(s213);
-console.log(s231);
-console.log(s321);
-console.log(s312);
-
-//solution-2
-
-// function shuffle(array) {
-// 	for (let i = array.length - 1; i > 0; i--) {
-// 		let j = Math.floor(Math.random() * (i + 1)); // ndom index from 0 to i
-
-// swap elements array[i] and array[j]
-// we use "destructuring assignment" syntax to achieve that
-// you'll find more details about that syntax in later chapters
-// same can be written as:
-// let t = array[i]; array[i] = array[j]; array[j] = t
-// 		[array[i], array[j]] = [array[j], array[i]];
+// 		randomPos = Math.floor(Math.random() * arr.length);
+// 		if (randomArr.includes(arr[randomPos])) continue;
+// 		else randomArr.push(arr[randomPos]);
 // 	}
+
+// 	return randomArr;
+// }
+// //check
+
+// let s123 = 0,
+// 	s132 = 0,
+// 	s213 = 0,
+// 	s231 = 0,
+// 	s321 = 0,
+// 	s312 = 0;
+// let resultsArr = [];
+
+// for (let i = 0; i < 10000; i++) {
+// 	temp = shuffle(arr9).join('');
+
+// 	if (temp == '123') s123++;
+// 	if (temp == '132') s132++;
+// 	if (temp == '213') s213++;
+// 	if (temp == '231') s231++;
+// 	if (temp == '321') s321++;
+// 	if (temp == '312') s312++;
 // }
 
-// // counts of appearances for all possible permutations
-// let count = {
-// 	123: 0,
-// 	132: 0,
-// 	213: 0,
-// 	231: 0,
-// 	321: 0,
-// 	312: 0,
-// };
+// console.log(s123);
+// console.log(s132);
+// console.log(s213);
+// console.log(s231);
+// console.log(s321);
+// console.log(s312);
 
-// for (let i = 0; i < 1000000; i++) {
-// 	let array = [1, 2, 3];
-// 	shuffle(array);
-// 	count[array.join('')]++;
+// //solution-2
+
+// // function shuffle(array) {
+// // 	for (let i = array.length - 1; i > 0; i--) {
+// // 		let j = Math.floor(Math.random() * (i + 1)); // ndom index from 0 to i
+
+// // swap elements array[i] and array[j]
+// // we use "destructuring assignment" syntax to achieve that
+// // you'll find more details about that syntax in later chapters
+// // same can be written as:
+// // let t = array[i]; array[i] = array[j]; array[j] = t
+// // 		[array[i], array[j]] = [array[j], array[i]];
+// // 	}
+// // }
+
+// // // counts of appearances for all possible permutations
+// // let count = {
+// // 	123: 0,
+// // 	132: 0,
+// // 	213: 0,
+// // 	231: 0,
+// // 	321: 0,
+// // 	312: 0,
+// // };
+
+// // for (let i = 0; i < 1000000; i++) {
+// // 	let array = [1, 2, 3];
+// // 	shuffle(array);
+// // 	count[array.join('')]++;
+// // }
+
+// // // show counts of all possible permutations
+// // for (let key in count) {
+// // 	alert(`${key}: ${count[key]}`);
+// // }
+
+// // 17) Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+// // The formula for the average is (age1 + age2 + ... + ageN) / N.
+
+// let vasya3 = { name: 'John', age: 25 };
+// let petya3 = { name: 'Pete', age: 30 };
+// let masha3 = { name: 'Mary', age: 29 };
+
+// let arr11 = [vasya3, petya3, masha3];
+
+// function getAverageAge(arr) {
+// 	let avgAge = 0;
+
+// 	for (const el of arr) {
+// 		avgAge += el.age;
+// 	}
+
+// 	return avgAge / arr.length;
 // }
 
-// // show counts of all possible permutations
-// for (let key in count) {
-// 	alert(`${key}: ${count[key]}`);
+// console.log(getAverageAge(arr11));
+
+// // 18) Let arr be an array.Create a function unique(arr) that should return an array with unique items of arr.
+
+// let strings = ['Hare', 'Krishna', 'Hare', 'Krishna', 'Krishna', 'Krishna', 'Hare', 'Hare', ':-O'];
+
+// function unique(arr) {
+// 	let uniqueElemsArr = [];
+
+// 	for (const el of arr) {
+// 		if (!uniqueElemsArr.includes(el)) uniqueElemsArr.push(el);
+// 	}
+
+// 	return uniqueElemsArr;
 // }
 
-// 17) Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
-// The formula for the average is (age1 + age2 + ... + ageN) / N.
+// console.log(unique(strings)); // Krishna, Hare, :-O
 
-let vasya3 = { name: 'John', age: 25 };
-let petya3 = { name: 'Pete', age: 30 };
-let masha3 = { name: 'Mary', age: 29 };
+// // 19) Even-indexed elements of the array will be copied into the second array, and even-indexed elements will be copied into the second array And the elements - in the third array.
 
-let arr11 = [vasya3, petya3, masha3];
+// let arr12 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-function getAverageAge(arr) {
-	let avgAge = 0;
+// function sortingByArrs(arr) {
+// 	let evenNum = [];
+// 	let oddNum = [];
 
-	for (const el of arr) {
-		avgAge += el.age;
-	}
+// 	for (const el of arr) {
+// 		if (el % 2 == 0) evenNum.push(el);
+// 		else oddNum.push(el);
+// 	}
 
-	return avgAge / arr.length;
+// 	return { evenNum, oddNum };
+// }
+
+// console.log(sortingByArrs(arr12));
+
+// // 20) მოახდენს ზრდადობის მიხედვით დალაგებული ორი მასივის შერწყმას და შექმნის ახალ
+// // ზრდადობის მიხედვით დალაგებულ მესამე მასივს.
+
+// let arr13 = [1, 5, 7, 4, 8, 9];
+// let arr14 = [11, 15, 14, 13, 12, 16, 17];
+
+// function concatAndSortArrs(arrOne, arrTwo) {
+// 	return arr13.concat(arr14).sort((a, b) => a - b);
+// }
+
+// console.log(concatAndSortArrs(arr13, arr14));
+
+// // 21) მასივის უარყოფით ელემენტებს შეცვლის 0-ებით
+
+// let arr15 = [1, -2, 0, 3, -5, 21];
+
+// function changeNegativNums(arr) {
+// 	return arr.map(el => (el > 0 ? el : 0));
+// }
+
+// console.log(changeNegativNums(arr15));
+
+// // 22) მასივის იმ ელემენტებს, რომლებიც 5-ზე გაყოფისას იძლევიან 1-დან 4-ის ტოლ ნაშთს,
+// // გადაწერს მეორე მასივში.
+
+let arr16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+function sortAndConcat(arr) {
+	return arr.filter(el => el % 5 >= 1 && el % 5 <= 4);
 }
 
-console.log(getAverageAge(arr11));
-
-// 18) Let arr be an array.Create a function unique(arr) that should return an array with unique items of arr.
-
-let strings = ['Hare', 'Krishna', 'Hare', 'Krishna', 'Krishna', 'Krishna', 'Hare', 'Hare', ':-O'];
-
-function unique(arr) {
-	let uniqueElemsArr = [];
-
-	for (const el of arr) {
-		if (!uniqueElemsArr.includes(el)) uniqueElemsArr.push(el);
-	}
-
-	return uniqueElemsArr;
-}
-
-console.log(unique(strings)); // Krishna, Hare, :-O
-
-// 19) Even-indexed elements of the array will be copied into the second array, and even-indexed elements will be copied into the second array And the elements - in the third array.
-
-let arr12 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-
-function sortingByArrs(arr) {
-	let evenNum = [];
-	let oddNum = [];
-
-	for (const el of arr) {
-		if (el % 2 == 0) evenNum.push(el);
-		else oddNum.push(el);
-	}
-
-	return { evenNum, oddNum };
-}
-
-console.log(sortingByArrs(arr12));
-
-// 20) მოახდენს ზრდადობის მიხედვით დალაგებული ორი მასივის შერწყმას და შექმნის ახალ
-// ზრდადობის მიხედვით დალაგებულ მესამე მასივს.
-
-let arr13 = [1, 5, 7, 4, 8, 9];
-let arr14 = [11, 15, 14, 13, 12, 16, 17];
-
-function concatAndSortArrs(arrOne, arrTwo) {
-	return arr13.concat(arr14).sort((a, b) => a - b);
-}
-
-console.log(concatAndSortArrs(arr13, arr14));
-
-// 21) მასივის უარყოფით ელემენტებს შეცვლის 0-ებით
-
-let arr15 = [1, -2, 0, 3, -5, 21];
-
-function changeNegativNums(arr) {
-	return arr.map(el => (el > 0 ? el : 0));
-}
-
-console.log(changeNegativNums(arr15));
+console.log(sortAndConcat(arr16));
