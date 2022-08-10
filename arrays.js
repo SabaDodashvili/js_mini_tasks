@@ -480,3 +480,16 @@ function sortAndConcat(arr) {
 }
 
 console.log(sortAndConcat(arr16));
+
+// 23) მასივის ელემენტებს ციკლურად დაძრავს მარჯვნივ n ელემენტით.
+
+let arr17 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+function moveArrElems(arr, n) {
+	for (let i = 0; i < n; i++) {
+		arr.unshift('');
+	}
+}
+
+moveArrElems(arr17, 5);
+console.log(arr17);
