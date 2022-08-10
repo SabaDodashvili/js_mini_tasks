@@ -496,13 +496,21 @@ let arr17 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 //solution 2
 
-function moveArrElems(arr, n) {
-	let newArr = [];
-	for (let i = 0; i < n; i++) {
-		newArr.push('');
-	}
+// function moveArrElems(arr, n) {
+// 	let newArr = [];
+// 	for (let i = 0; i < n; i++) {
+// 		newArr.push('');
+// 	}
 
-	return newArr.concat(arr);
+// 	return newArr.concat(arr);
+// }
+
+// console.log(moveArrElems(arr17, 5));
+
+//solution 3
+
+function moveArrElems(arr, n) {
+	return new Array(n).concat(arr);
 }
 
 console.log(moveArrElems(arr17, 5));
