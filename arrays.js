@@ -473,17 +473,17 @@
 // // 22) მასივის იმ ელემენტებს, რომლებიც 5-ზე გაყოფისას იძლევიან 1-დან 4-ის ტოლ ნაშთს,
 // // გადაწერს მეორე მასივში.
 
-let arr16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+// let arr16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-function sortAndConcat(arr) {
-	return arr.filter(el => el % 5 >= 1 && el % 5 <= 4);
-}
+// function sortAndConcat(arr) {
+// 	return arr.filter(el => el % 5 >= 1 && el % 5 <= 4);
+// }
 
-console.log(sortAndConcat(arr16));
+// console.log(sortAndConcat(arr16));
 
 // 23) მასივის ელემენტებს ციკლურად დაძრავს მარჯვნივ n ელემენტით.
 
-let arr17 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+// let arr17 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 // function moveArrElems(arr, n) {
 // 	for (let i = 0; i < n; i++) {
@@ -509,8 +509,25 @@ let arr17 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 //solution 3
 
-function moveArrElems(arr, n) {
-	return new Array(n).concat(arr);
-}
+// function moveArrElems(arr, n) {
+// 	return new Array(n).concat(arr);
+// }
 
-console.log(moveArrElems(arr17, 5));
+// console.log(moveArrElems(arr17, 5));
+
+// 24) მასივში ადგილებს შეუცვლის კენტი და ლუწი ინდექსის მქონე ელემენტებს.
+
+let arr18 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+function sortArr(arr) {
+	let newArr = [];
+	let flag = false;
+
+	for (let i = 0; i < arr.length; i++) {
+		flag = !flag;
+		flag ? newArr.push(arr[i + 1]) : newArr.push(arr[i - 1]);
+	}
+
+	return newArr;
+}
+console.log(sortArr(arr18));
