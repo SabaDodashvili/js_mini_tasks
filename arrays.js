@@ -517,17 +517,36 @@
 
 // 24) მასივში ადგილებს შეუცვლის კენტი და ლუწი ინდექსის მქონე ელემენტებს.
 
-let arr18 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+// let arr18 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-function sortArr(arr) {
-	let newArr = [];
-	let flag = false;
+// function sortArr(arr) {
+// 	let newArr = [];
+// 	let flag = false;
 
-	for (let i = 0; i < arr.length; i++) {
-		flag = !flag;
-		flag ? newArr.push(arr[i + 1]) : newArr.push(arr[i - 1]);
+// 	for (let i = 0; i < arr.length; i++) {
+// 		flag = !flag;
+// 		flag ? newArr.push(arr[i + 1]) : newArr.push(arr[i - 1]);
+// 	}
+
+// 	return newArr;
+// }
+// console.log(sortArr(arr18));
+
+// 25) შეამოწმებს ემთხვევა თუ არა მასივის პირველი ნახევარი მის მეორე ნახევარს
+
+let arr19 = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+
+function halvesAreEqual(arr) {
+	if (arr.length % 2 === 0) {
+		let firstHalf = arr.splice(0, arr.length / 2);
+		let secondHalf = arr;
+
+		for (let i = 0; i < arr.length; i++) {
+			if (firstHalf[i] !== secondHalf[i]) return false;
+		}
+
+		return true;
 	}
-
-	return newArr;
 }
-console.log(sortArr(arr18));
+
+console.log(halvesAreEqual(arr19));
