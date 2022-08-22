@@ -534,19 +534,33 @@
 
 // 25) შეამოწმებს ემთხვევა თუ არა მასივის პირველი ნახევარი მის მეორე ნახევარს
 
-let arr19 = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+// let arr19 = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
 
-function halvesAreEqual(arr) {
-	if (arr.length % 2 === 0) {
-		let firstHalf = arr.splice(0, arr.length / 2);
-		let secondHalf = arr;
+// function halvesAreEqual(arr) {
+// 	if (arr.length % 2 === 0) {
+// 		let firstHalf = arr.splice(0, arr.length / 2);
+// 		let secondHalf = arr;
 
-		for (let i = 0; i < arr.length; i++) {
-			if (firstHalf[i] !== secondHalf[i]) return false;
-		}
+// 		for (let i = 0; i < arr.length; i++) {
+// 			if (firstHalf[i] !== secondHalf[i]) return false;
+// 		}
 
-		return true;
+// 		return true;
+// 	}
+// }
+
+// console.log(halvesAreEqual(arr19));
+
+// 26) განსაზღვრავს შეიცავს თუ არა ერთი მასივი მეორეს ელემენტებს.
+
+let arr20 = [1, 2, 3, 4, 5];
+let arr21 = [4, 3, 5];
+
+function contains(arr1, arr2) {
+	for (let i = 0; i < arr2.length; i++) {
+		if (arr1.indexOf(arr2[i]) == -1) return false;
 	}
+	return true;
 }
 
-console.log(halvesAreEqual(arr19));
+console.log(contains(arr20, arr21));
