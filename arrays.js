@@ -551,16 +551,43 @@
 
 // console.log(halvesAreEqual(arr19));
 
-// 26) განსაზღვრავს შეიცავს თუ არა ერთი მასივი მეორეს ელემენტებს.
+// 26) განსაზღვრავს შეიცავს თუ არა ერთი მასივი მეორეს ელემენტებს. ???
 
-let arr20 = [1, 2, 3, 4, 5];
-let arr21 = [4, 3, 5];
+// let arr20 = [1, 2, 3, 4, 3, 32, 4, 4, 2, 4, 4, 5, 54];
+// let arr21 = [4, 5];
 
-function contains(arr1, arr2) {
-	for (let i = 0; i < arr2.length; i++) {
-		if (arr1.indexOf(arr2[i]) == -1) return false;
+// function contains(arr1, arr2) {
+// 	for (let i = 0; i < arr2.length; i++) {
+// 		if (arr1.indexOf(arr2[i]) == -1) return false;
+// 	}
+// 	return true;
+// }
+
+// console.log(contains(arr20, arr21));
+
+// 27) განსაზღვრავს შეიცავს თუ არა ერთი რიცხვებისგან შემდგარი მასივი მეორეს (თანმიმდევრობას აქვს მნიშვნელობა)
+
+let arr22 = [1, 2, 3, 4, 3, 32, 4, 4, 2, 4, 4, 5, 54];
+let arr23 = [4, 5];
+
+function contains2(arr1, arr2) {
+	let flag = false;
+	let tempIndex;
+
+	while (tempIndex !== -1 && flag === false) {
+		tempIndex = arr1.indexOf(arr2[0], tempIndex + 1);
+
+		if (tempIndex !== -1) {
+			for (let k = tempIndex, j = 0; j < arr2.length; k++, j++) {
+				if (arr1[k] !== arr2[j]) {
+					flag = false;
+					break;
+				} else flag = true;
+			}
+		}
 	}
-	return true;
+
+	return flag;
 }
 
-console.log(contains(arr20, arr21));
+console.log(contains2(arr20, arr21));
