@@ -33,3 +33,12 @@ function random(min, max) {
 }
 
 console.log(random(10, 15));
+
+// 4) Create a function randomInteger(min, max) that generates a random integer number from min to max including both min and max as possible values. Any number from the interval min..max must appear with the same probability.
+
+function randomInteger(min, max) {
+	let rand = min - 0.5 + Math.random() * (max - min + 1);
+	return Math.round(rand);
+}
+
+console.log(randomInteger(10, 15));
