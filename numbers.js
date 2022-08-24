@@ -14,14 +14,22 @@
 
 // 2) Create a function readNumber which prompts for a number until the visitor enters a valid numeric value. The resulting value must be returned as a number. The visitor can also stop the process by entering an empty line or pressing “CANCEL”. In that case, the function should return null.
 
-function readNumber(num = undefined) {
-	while (true) {
-		num = prompt('input number', '');
+// function readNumber(num = undefined) {
+// 	while (true) {
+// 		num = prompt('input number', '');
 
-		if (num === null || num === '') return null;
-		else if (num !== '0' && isNaN(num / num)) continue;
-		else return num;
-	}
+// 		if (num === null || num === '') return null;
+// 		else if (num !== '0' && isNaN(num / num)) continue;
+// 		else return num;
+// 	}
+// }
+
+// console.log(readNumber());
+
+// 3) The built-in function Math.random() creates a random value from 0 to 1 (not including 1).Write the function random(min, max) to generate a random floating-point number from min to max (not including max).
+
+function random(min, max) {
+	return min + Math.random() * (max - min);
 }
 
-console.log(readNumber());
+console.log(random(10, 15));
